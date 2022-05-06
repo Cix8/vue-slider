@@ -25,7 +25,8 @@ const text = [
 const objArray = [];
 
 class Country {
-    constructor(image, title, text) {
+    constructor(id, image, title, text) {
+        this.id = id,
         this.image = image,
         this.title = title,
         this.text = text
@@ -33,7 +34,7 @@ class Country {
 }
 
 for (let i = 0; i < images.length; i++) {
-    objArray.push(new Country(images[i], title[i], text[i]));
+    objArray.push(new Country(i, images[i], title[i], text[i]));
 }
 
 console.log(objArray);
