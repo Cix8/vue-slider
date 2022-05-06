@@ -26,7 +26,6 @@ const objArray = [];
 
 class Country {
     constructor(image, title, text) {
-        this.active = false,
         this.image = image,
         this.title = title,
         this.text = text
@@ -49,9 +48,9 @@ const app = new Vue(
         methods: {
             prevSlide: function() {
                 if (this.currentSlide == 0) {
-                    this.currentSlide = this.mainData.length - 1; // ultima
+                    this.currentSlide = this.mainData.length - 1;
                 } else {
-                    this.currentSlide--; // precedente
+                    this.currentSlide--;
                 }
                 console.log(this.currentSlide);
             },

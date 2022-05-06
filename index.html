@@ -18,8 +18,8 @@
     <div id="root">
         <div class="container">
             <div class="items">
-                <div class="item" :class="" v-for="element in mainData">
-                    <img :src="element.image" alt="">
+                <div class="item" v-for="(element, index) in mainData" :class="index == currentSlide ? 'active' : ''">
+                    <img :src="element.image" :alt="element.title">
                     <div class="text">
                         <h3>{{ element.title }}</h3>
                         <p>{{ element.text }}</p>
@@ -36,13 +36,16 @@
                 -->
             </div>
             <div class="thumbs">
+                <div @click="prevSlide" class="prev"></div>
+                <div @click="nextSlide" class="next"></div>
+                <div class="thumb" v-for="(element, index) in mainData" :class="index == currentSlide ? 'active' : ''">
+                    <img :src="element.image" :alt="element.title">
+                </div>
                 <!--
                 <div class="thumb active">
                     <img src="./img/01.jpg" alt="">
                 </div>
                 -->
-                <div @click="prevSlide" class="prev"></div>
-                <div @click="nextSlide" class="next"></div>
             </div>
        </div>
     </div>
