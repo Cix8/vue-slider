@@ -44,9 +44,19 @@ const app = new Vue(
         el: '#root',
         data: {
             mainData: objArray,
-            currentSlide: 0
+            currentSlide: 0,
+            timer: 0,
+            startAutoplay: true
         },
         methods: {
+            onHover: function() {
+                clearInterval(this.timer);
+            },
+            autoplay: function() {
+                if (this.startAutoplay) {
+                    this.timer = setInterval(this.nextSlide, 3000);
+                }
+            },
             prevSlide: function() {
                 if (this.currentSlide == 0) {
                     this.currentSlide = this.mainData.length - 1;
