@@ -26,6 +26,7 @@ const objArray = [];
 
 class Country {
     constructor(image, title, text) {
+        this.active = false,
         this.image = image,
         this.title = title,
         this.text = text
@@ -42,7 +43,26 @@ const app = new Vue(
     {
         el: '#root',
         data: {
-            mainData: objArray
+            mainData: objArray,
+            currentSlide: 0
+        },
+        methods: {
+            prevSlide: function() {
+                if (this.currentSlide == 0) {
+                    this.currentSlide = this.mainData.length - 1; // ultima
+                } else {
+                    this.currentSlide--; // precedente
+                }
+                console.log(this.currentSlide);
+            },
+            nextSlide: function() {
+                if (this.currentSlide == this.mainData.length - 1) {
+                    this.currentSlide = 0;
+                } else {
+                    this.currentSlide++;
+                }
+                console.log(this.currentSlide);
+            }
         }
     }
 )
